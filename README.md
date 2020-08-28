@@ -3,14 +3,14 @@
 
 Main Parts list
 
--Arduino Pro Mini 3.3v
--2 DHT22
--SparkFun Nano Power Timer - TPL5110
--SparkFun Sunny Buddy - MPPT Solar Charger
--SparkFun Lithium Ion Battery - 2Ah 3.7V
--SparkFun Solar Panel - 6W
--Hall-Effect Sensor - AH1815 (Non-Latching)
--Schottky Diode to isolate power when programming
+- Arduino Pro Mini 3.3v
+- 2 DHT22
+- SparkFun Nano Power Timer - TPL5110
+- SparkFun Sunny Buddy - MPPT Solar Charger
+- SparkFun Lithium Ion Battery - 2Ah 3.7V
+- SparkFun Solar Panel - 6W
+- Hall-Effect Sensor - AH1815 (Non-Latching)
+- Schottky Diode to isolate power when programming
 
   
 The Arduino script
