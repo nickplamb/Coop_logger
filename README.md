@@ -12,7 +12,7 @@ Hall-Effect Sensor - AH1815 (Non-Latching)
 Schottky Diode to isolate power when programming
   
   
-The Arduino takes these steps on startup:
+The Arduino script:
 '
 1. connects to WIFI
 2. Checks hall-effect sensor
@@ -22,6 +22,7 @@ The Arduino takes these steps on startup:
 6. POST to home server through PHP script.
 7. Sends sleep signal to Timer to cut power.
 '
+
 PHP insert Script
 '
 1. Retrieves and sanatizes data from POST request
@@ -30,6 +31,7 @@ PHP insert Script
 4. Sends data to Thingspeak channel
 5. Writes data to mysql database
 '  
+
 PHP Display Script
 '
 1. Writes Table Headers
