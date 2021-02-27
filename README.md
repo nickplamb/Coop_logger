@@ -4,6 +4,7 @@
 Main Parts list
 
 - Arduino Pro Mini 3.3v
+- Esp8266
 - 2 DHT22
 - SparkFun Nano Power Timer - TPL5110
 - SparkFun Sunny Buddy - MPPT Solar Charger
