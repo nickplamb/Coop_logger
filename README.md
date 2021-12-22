@@ -38,5 +38,8 @@ PHP Display Script
 
 1. Writes Table Headers
 2. Pulls data from database
-3. Writes data to HTML table.
+3. Writes data to HTML table
 
+## Future Development
+
+- [ ] add failsafe for no wifi connection to prevent infinite loop.
