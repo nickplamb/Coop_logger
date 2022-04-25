@@ -76,7 +76,6 @@ char api_key[] = "api_key=YOUR API KEY HERE";
 
 
 void setup() {
-  
   //**********************************Set pins***********************
   pinMode(DONEPIN, OUTPUT);  //Power Timer Done Pin
   pinMode(MPPT_CHG_PIN, INPUT_PULLUP);
@@ -87,22 +86,18 @@ void setup() {
   Serial.begin(SERIALBAUD);
 
   connectWifi();
-  
+
   // initialize DHT library
   dht1.begin();
   dht2.begin();
-  
   
   //Display Wifi and network information
   DEBUG_PRINTLN();
   //printCurrentNet();
   //printWifiData();
-  
-  
 }
 
-void loop()
-{
+void loop() {
   checkDoorLock();
   //printLockStatus();
   getSensorData();    //Reads two DHT sensors, prints data to Serial 
@@ -124,15 +119,27 @@ void connectWifi(){
   if (WiFi.status() == WL_NO_SHIELD) {
     DEBUG_PRINTLN("WiFi shield not present");
     // don't continue
-    while (true);
+    sleep();
+    // while (true);
   }
 
   // attempt to connect to WiFi network
+  // Stop infinite loop if unable to connect to wifi.
+  int connectionAttempts = 0;
   while ( status != WL_CONNECTED) {
+    if (connectionAttempts >= 5) {
+      DEBUG_PRINT("Too many attempts to connect to Wifi. Going to sleep now.");
+      sleep();
+    }
+
     DEBUG_PRINT("Attempting to connect to WPA SSID: ");
     DEBUG_PRINTLN(ssid);
     // Connect to WPA/WPA2 network
     status = WiFi.begin(ssid, pass);
+    ++connectionAttempts;
+
+    // delay for connection.
+    delay(10000);
   }
   
   // you're connected now, so print out the data
@@ -214,7 +221,6 @@ void getBatteryData() {
 }
 
 void checkDoorLock() {
-  
   lockClosed = digitalRead(HALLPIN);    //
   sprintf(lockData, "door_locked=%d", lockClosed);
 }
@@ -320,10 +326,8 @@ void printCurrentNet() {
 
 
 void sleep (){    //Sends pulse to nano power timer
-  
   digitalWrite(DONEPIN,LOW);
   digitalWrite(DONEPIN,HIGH);
   DEBUG_PRINTLN("Restarting loop in 5 seconds");
   delay(5000);
-
 }
